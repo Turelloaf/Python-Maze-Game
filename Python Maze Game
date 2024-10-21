@@ -1,0 +1,407 @@
+import time
+import random
+from Ipython import clear_output
+
+
+#w = wall, p = player
+w= '#'
+p = '*'
+Bhall_cell = '#   #'
+Phall_cell = '# * #'
+
+#hall way options
+#botCross = 
+def BotCross():
+    print(w,w,w,w,w,w,w)
+    print(p,'     ')
+    print(w,w,w,' ',w,w,w)
+    print(' '*3,Bhall_cell)
+    print(' '*3,Bhall_cell)
+    print(' '*3,Bhall_cell)
+    print(' '*3,Bhall_cell)
+    print(' '*3,Bhall_cell)
+
+#cross
+def cross():
+    print(w*7)
+    print(p,' '*6)
+    print(w*7)
+
+#AllWay
+def AllWay():
+    print(' '*4,Bhall_cell)
+    print(' '*4,Bhall_cell)
+    print(' '*4,Bhall_cell)
+    print(' '*4,Bhall_cell)
+    print(' '*4,Bhall_cell)
+    print(w,w,w,'  ',w,w,w)
+    print(p,'     ')
+    print(w,w,w,'  ',w,w,w)
+    print(' '*4,Bhall_cell)
+    print(' '*4,Bhall_cell)
+    print(' '*4,Bhall_cell)
+    print(' '*4,Bhall_cell)
+    print(' '*4,Bhall_cell)
+
+#Bot
+def bot():
+    print(w*11)
+    print(p,'       ',w)
+    print(w,w,w,w,' ',w)
+    print(' '*5,Bhall_cell)
+    print(' '*5,Bhall_cell)
+    print(' '*5,Bhall_cell)
+    print(' '*5,Bhall_cell)
+    print(' '*5,Bhall_cell)
+
+#Top
+def top():
+    print(' '*5,Bhall_cell)
+    print(' '*5,Bhall_cell)
+    print(' '*5,Bhall_cell)
+    print(' '*5,Bhall_cell)
+    print(' '*5,Bhall_cell)
+    print(w,w,w,w,' ',w)
+    print(p,'       ',w)
+    print(w*11)
+
+#DeadEnd
+def end():
+    print(w,w,w,w,w)
+    print(p,'     ',w)
+    print(w,w,w,w,w)
+    print('You have hit a dead end.\n')
+    
+#exit
+def exit():
+   print('You found the exit! congratulations!\n')
+
+def LbotCross(): #1 in left dict
+    print(w,w,w,w,w,w,w)
+    print('           ',p)
+    print(w,w,w,' ',w,w,w)
+    print(' '*3,Bhall_cell)
+    print(' '*3,Bhall_cell)
+    print(' '*3,Bhall_cell)
+    print(' '*3,Bhall_cell)
+    print(' '*3,Bhall_cell)
+    
+    
+def LCross():#2 in left dict
+    print(w*7)
+    print(' '*5,p)
+    print(w*7)
+    
+    
+
+def LAllWay():#3 in left dict
+    print(' '*4,Bhall_cell)
+    print(' '*4,Bhall_cell)
+    print(' '*4,Bhall_cell)
+    print(' '*4,Bhall_cell)
+    print(' '*4,Bhall_cell)
+    print(w,w,w,'  ',w,w,w)
+    print('             ',p)
+    print(w,w,w,'  ',w,w,w)
+    print(' '*4,Bhall_cell)
+    print(' '*4,Bhall_cell)
+    print(' '*4,Bhall_cell)
+    print(' '*4,Bhall_cell)
+    print(' '*4,Bhall_cell)
+    
+    
+def LBot():#4 in left dict
+    print(w*9)
+    print(w,'     ',p)
+    print(w,' ',w,w,w)
+    print(Bhall_cell)
+    print(Bhall_cell)
+    print(Bhall_cell)
+    print(Bhall_cell)
+    print(Bhall_cell)
+    
+
+def LTop():#5 in left dict
+    print(Bhall_cell)
+    print(Bhall_cell)
+    print(Bhall_cell)
+    print(Bhall_cell)
+    print(Bhall_cell)
+    print(w,' ',w,w,w)
+    print(w,'     ',p)
+    print(w*9)
+
+def LEnd():# 6 in left dict
+    print(w,w,w,w,w)
+    print(w,'     ',p)
+    print(w,w,w,w,w)
+    print('You have hit a dead end.\n')
+    
+    
+def LExit():#7 in left dict
+    print('You found the exit! congratulations!\n')
+    
+
+#Up input cells
+def Ucross():
+    print(Bhall_cell)
+    print(Bhall_cell)
+    print(Bhall_cell)
+    print(Bhall_cell)
+    print(Bhall_cell)
+    print(Phall_cell)
+    
+    
+def Uright():
+    print(w,w,w,w,w)
+    print(w,'     ')
+    print(w,' ',w,w,w)
+    print(Bhall_cell)
+    print(Bhall_cell)
+    print(Bhall_cell)
+    print(Phall_cell)
+    
+    
+
+def UAll():
+    print(' '*4,Bhall_cell)
+    print(' '*4,Bhall_cell)
+    print(' '*4,Bhall_cell)
+    print(' '*4,Bhall_cell)
+    print(' '*4,Bhall_cell)
+    print(w,w,w,'  ',w,w,w)
+    print('             ')
+    print(w,w,w,'  ',w,w,w)
+    print(' '*4,Bhall_cell)
+    print(' '*4,Bhall_cell)
+    print(' '*4,Bhall_cell)
+    print(' '*4,Bhall_cell)
+    print(' '*4,Phall_cell)
+    
+    
+    
+def ULeft():
+    print(w,w,w,w,w)
+    print('       ',w)
+    print(w,w,w,' ',w)
+    print(' '*3,Bhall_cell)
+    print(' '*3,Bhall_cell)
+    print(' '*3,Bhall_cell)
+    print(' '*3,Phall_cell)
+    
+    
+    
+def UEnd():
+    print(w,w,w)
+    print(Bhall_cell)
+    print(Bhall_cell)
+    print(Bhall_cell)
+    print(Bhall_cell)
+    print(Phall_cell)
+    print('You hae reached a dead end.\n')
+    
+    
+    
+    
+def UExit():
+    print('You found the exit! congratulations!\n')
+    
+    
+def UTee():
+    print(w,w,w,w,w,w,w)
+    print('            ')
+    print(w,w,w,' ',w,w,w)
+    print(' '*3,Bhall_cell)
+    print(' '*3,Bhall_cell)
+    print(' '*3,Bhall_cell)
+    print(' '*3,Bhall_cell)
+    print(' '*3,'# * #')
+ 
+    
+def DCross():
+    print('# * #')
+    print(Bhall_cell)
+    print(Bhall_cell)
+    print(Bhall_cell)
+    print(Bhall_cell)
+    print(Bhall_cell)
+
+
+def DAllWay():
+    print(' '*4,Phall_cell)
+    print(' '*4,Bhall_cell)
+    print(' '*4,Bhall_cell)
+    print(' '*4,Bhall_cell)
+    print(' '*4,Bhall_cell)
+    print(w,w,w,'   ',w,w,w)
+    print('             ')
+    print(w,w,w,'   ',w,w,w)
+    print(' '*4,Bhall_cell)
+    print(' '*4,Bhall_cell)
+    print(' '*4,Bhall_cell)
+    print(' '*4,Bhall_cell)
+    print(' '*4,Bhall_cell)
+    
+def DTee():
+    print(' '*3,'# * #')
+    print(' '*3,Bhall_cell)
+    print(' '*3,Bhall_cell)
+    print(' '*3,Bhall_cell)
+    print(' '*3,Bhall_cell)
+    print(w,w,w,' ',w,w,w)
+    print('            ')
+    print(w,w,w,w,w,w,w)
+def DEnd():
+    print(Phall_cell)
+    print(Bhall_cell)
+    print(Bhall_cell)
+    print(Bhall_cell)
+    print(Bhall_cell)
+    print(w,w,w)
+    print('You hae reached a dead end.\n')
+def DExit():
+    print('You have found the exit!')
+    
+def DLeft():
+    
+    print(' '*3,Phall_cell)
+    print(' '*3,Bhall_cell)
+    print(' '*3,Bhall_cell)
+    print(' '*3,Bhall_cell)
+    print(w,w,w,' ',w)
+    print('       ',w)
+    print(w,w,w,w,w)
+def DRight():
+    print(Phall_cell)
+    print(Bhall_cell)
+    print(Bhall_cell)
+    print(Bhall_cell)
+    print(w,' ',w,w,w)
+    print(w,'     ')
+    print(w,w,w,w,w)
+
+    
+def Start():
+    print(' '*3,w,p,w)
+    print(' '*3,w,' ' ,w)
+    print(' '*3,w,' ',w)
+    
+
+
+    
+Ddict = {1: DCross, 2: DAllWay, 3: DTee, 4: DLeft, 5: DRight, 6: DEnd, 7: DExit}
+down_int = random.choice(tuple(Ddict))
+
+DdictP = {1: DCross, 2: DAllWay, 3: DTee, 4: DLeft, 5: DRight}
+d0wn_int = random.choice(tuple(DdictP))
+#DdictP[d0wn_int]()
+
+#Ddict[down_int]()
+    
+    
+Ldict = {1: LbotCross, 2: LCross, 3: LAllWay, 4: LBot, 5: LTop, 6: LEnd, 7: LExit}#left Dictionary 
+left_int = random.choice(tuple(Ldict)) 
+
+LdictP = {1: LbotCross, 2: LCross, 3: LAllWay, 4: LBot, 5: LTop}
+l3ft_int = random.choice(tuple(LdictP))
+#LdictP[l3ft_int]()
+#Ldict[left_int]()
+
+call_dict = {1: BotCross, 2: cross, 3: AllWay, 4: bot, 5: top, 6: end, 7: exit} #original dictionary. (Right)
+choice_int = random.choice(tuple(call_dict))
+
+ca11_dict = {1: BotCross, 2: cross, 3: AllWay, 4: bot, 5: top}
+ch0ice_int = random.choice(tuple(ca11_dict))
+#ca11_dict[ch0ice_int]()
+#call_dict[choice_int]()
+
+Udict = {1:Ucross, 2: Uright, 3: UAll, 4: ULeft, 5: UTee, 6: UEnd, 7: UExit }#Up Dictionary. 
+Up_int = random.choice(tuple(Udict))
+
+UdictP = {1:Ucross, 2: Uright, 3: UAll, 4: ULeft, 5: UTee}
+Up_1nt = random.choice(tuple(UdictP))
+#UdictP[Up_1nt]()
+#Udict[Up_int]()
+
+
+# Start()
+# time.sleep(1)
+# posit = input('which way would you like to go?\n')
+print("***RULES OF THE GAME***")
+print("1) You are the '*' icon.")
+print("2) use the directions left, right, up, and down to move between the rooms.")
+print("3) If you ever want to stop or hit a dead end type 'end'")
+print("4) Have fun!")
+Start()
+time.sleep(1)
+posit = input('which way would you like to go?\n')
+
+
+
+while True:
+#     posit = input('which way would you like to go?\n')
+    if posit == "down":
+        if posit in 'down':
+            print("\n"*50)
+            Ddict[down_int]()
+            time.sleep(1)
+            down_int = random.randrange(1,7)
+            posit = input('which way would you like to go?\n')
+            
+
+    elif posit == "right":
+        #pass
+        if posit in ('right'):
+            print("\n"*50)
+            call_dict[choice_int]()
+            time.sleep(1)
+            choice_int = random.randrange(1,7)
+            posit = input('which way would you like to go?\n')
+            
+        #continue
+
+    elif posit == "left":
+    # pass 
+        if posit in ('left'):
+            print("\n"*50)
+            Ldict[left_int]()
+            time.sleep(1)
+            left_int = random.randrange(1,7)
+            posit = input('which way would you like to go?\n')
+            
+        #continue
+        
+    elif posit == "up":
+        #pass
+        if posit in ('up'):
+            clear_output(wait=false)
+            Udict[Up_int]()
+            time.sleep(1)
+            Up_int = random.randrange(1,7)
+            os.system("")
+            posit = input('which way would you like to go?\n')
+            
+    elif posit == "end":
+        if posit in ('end'):
+            break
+
+            
+            
+# process of making, why I made it, limitations of its creation, what else can be done to it. 
+#Order of how things are to be turned in Abstract. ppt, one page description of project(goal,
+#inspiration,background,Findings/Results,conclusion(expansion of conclusion)Referance list,code)
+
+#all in the same word doc. 
+
+
+# In[ ]:
+
+
+
+
+
+# In[ ]:
+
+
+
+
